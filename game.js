@@ -21,8 +21,8 @@ function create() {
 
   gs.ball = this.add.circle(400, 300, 5, 0xe09040)
   this.physics.add.existing(gs.ball)
-  gs.ball.body.velocity.x = -150
-  gs.ball.body.velocity.y = -150
+  gs.ball.body.velocity.x = 150
+  gs.ball.body.velocity.y = 10
   gs.ball.body.bounce.y = 1
   gs.ball.body.bounce.x = 1
   gs.ball.body.collideWorldBounds = true
