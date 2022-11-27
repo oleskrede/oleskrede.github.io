@@ -4,7 +4,7 @@ import MainScene from './scenes/mainScene'
 const DEFAULT_WIDTH = 1280
 const DEFAULT_HEIGHT = 720
 
-const config = {
+export const config = {
   type: Phaser.AUTO,
   backgroundColor: '#ffffff',
   scale: {

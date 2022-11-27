@@ -1,3 +1,3 @@
 export default {
-    base: '/untitled-zombie-game/dist'
+    base: '/untitled-zombie-game/dist/'
 }

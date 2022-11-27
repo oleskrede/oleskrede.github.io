@@ -1,32 +1,38 @@
 import FpsText from '../objects/fpsText'
-import PhaserLogo from '../objects/phaserLogo'
-import phaserLogoUrl from '../assetes/img/phaser-logo.png'
+import playerSheetUrl from '../assetes/img/player-sheet.png'
+import { config } from '../game'
+import Player from '../objects/player'
 
 export default class MainScene extends Phaser.Scene {
-  fpsText!: FpsText
+    fpsText!: FpsText
+    player!: Player
 
-  constructor() {
-    super({ key: 'MainScene' })
-  }
+    constructor() {
+        super({ key: 'MainScene' })
+    }
 
-  preload() {
-    this.load.image('phaser-logo', phaserLogoUrl)
-  }
+    preload() {
+        this.load.spritesheet('player', playerSheetUrl, { frameWidth: 24, frameHeight: 24 })
+    }
 
-  create() {
-    new PhaserLogo(this, this.cameras.main.width / 2, 0)
-    this.fpsText = new FpsText(this)
+    create() {
+        this.fpsText = new FpsText(this)
 
-    // display the Phaser.VERSION
-    this.add
-      .text(this.cameras.main.width - 15, 15, `Phaser v${Phaser.VERSION}`, {
-        color: '#000000',
-        fontSize: '24px'
-      })
-      .setOrigin(1, 0)
-  }
+        // display the Phaser.VERSION
+        this.add
+            .text(this.cameras.main.width - 15, 15, `Phaser v${Phaser.VERSION}`, {
+                color: '#000000',
+                fontSize: '24px'
+            })
+            .setOrigin(1, 0)
 
-  update() {
-    this.fpsText.update()
-  }
+        this.physics.world.setBounds(0, 0, config.scale.width, config.scale.height)
+        this.player = new Player(this, 50, config.scale.height-50)
+
+    }
+
+    update() {
+        this.fpsText.update()
+        this.player.update()
+    }
 }
