@@ -21,7 +21,7 @@ export default class MainScene extends Phaser.Scene {
 
     create() {
         new PhaserLogo(this, this.cameras.main.width / 2, 0)
-        new Player(this, 50, this.cameras.main.height / 2)
+        // new Player(this, 50, this.cameras.main.height / 2)
         this.fpsText = new FpsText(this)
 
         // display the Phaser.VERSION
