@@ -1,6 +1,6 @@
 export default class Player extends Phaser.Physics.Arcade.Sprite {
   
-  cursors: Phaser.Types.Input.Keyboard.CursorKeys
+  // cursors: Phaser.Types.Input.Keyboard.CursorKeys
   player: Phaser.Types.Physics.Arcade.SpriteWithDynamicBody
 
   speed = 200
@@ -12,7 +12,7 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
     this.player = scene.physics.add.sprite(x, y, 'player')
     this.player.setCollideWorldBounds(true)
 
-    this.cursors = scene.input.keyboard.createCursorKeys()
+    // this.cursors = scene.input.keyboard.createCursorKeys()
 
     scene.anims.create({
       key: "run",
@@ -23,17 +23,17 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
   }
 
   update() {
-    if (this.cursors.right.isDown) {
-      this.player.flipX = false;
-      this.player.setVelocityX(this.speed);
-      this.player.anims.play("run", true);
-    } else if (this.cursors.left.isDown) {
-      this.player.flipX = true;
-      this.player.setVelocityX(-this.speed);
-      this.player.anims.play("run", true);
-    } else {
-      this.player.setVelocityX(0);
-      this.player.anims.pause()
-    }
+    // if (this.cursors.right.isDown) {
+    //   this.player.flipX = false;
+    //   this.player.setVelocityX(this.speed);
+    //   this.player.anims.play("run", true);
+    // } else if (this.cursors.left.isDown) {
+    //   this.player.flipX = true;
+    //   this.player.setVelocityX(-this.speed);
+    //   this.player.anims.play("run", true);
+    // } else {
+    //   this.player.setVelocityX(0);
+    //   this.player.anims.pause()
+    // }
   }
 }

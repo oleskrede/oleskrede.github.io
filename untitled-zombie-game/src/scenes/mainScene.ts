@@ -1,7 +1,9 @@
 import FpsText from '../objects/fpsText'
-import playerSheetUrl from '../assetes/img/player-sheet.png'
+import phaserLogoUrl from '../assets/img/phaser-logo.png'
+import playerSheetUrl from '../assets/img/player-sheet.png'
 import { config } from '../game'
 import Player from '../objects/player'
+import PhaserLogo from '../objects/phaserLogo'
 
 export default class MainScene extends Phaser.Scene {
     fpsText!: FpsText
@@ -12,10 +14,13 @@ export default class MainScene extends Phaser.Scene {
     }
 
     preload() {
+        this.load.image('phaser-logo', phaserLogoUrl)
+
         this.load.spritesheet('player', playerSheetUrl, { frameWidth: 24, frameHeight: 24 })
     }
 
     create() {
+        new PhaserLogo(this, this.cameras.main.width / 2, 0)
         this.fpsText = new FpsText(this)
 
         // display the Phaser.VERSION
