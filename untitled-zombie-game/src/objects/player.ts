@@ -1,16 +1,17 @@
 export default class Player extends Phaser.Physics.Arcade.Sprite {
   
   // cursors: Phaser.Types.Input.Keyboard.CursorKeys
-  player: Phaser.Types.Physics.Arcade.SpriteWithDynamicBody
-
   speed = 200
 
   constructor(scene: Phaser.Scene, x: number, y: number) {
     super(scene, x, y, 'player')
 
 
-    this.player = scene.physics.add.sprite(x, 0, 'player')
-    // this.player.setCollideWorldBounds(true)
+    scene.add.existing(this)
+    scene.physics.add.existing(this)
+
+    // this.player = scene.physics.add.sprite(x, 0, 'player')
+    this.setCollideWorldBounds(true)
 
     // this.cursors = scene.input.keyboard.createCursorKeys()
 
@@ -22,7 +23,7 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
     // })
   }
 
-  update() {
+  // update() {
     // if (this.cursors.right.isDown) {
     //   this.player.flipX = false;
     //   this.player.setVelocityX(this.speed);
@@ -35,5 +36,5 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
     //   this.player.setVelocityX(0);
     //   this.player.anims.pause()
     // }
-  }
+  // }
 }

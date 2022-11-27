@@ -16,11 +16,12 @@ export default class MainScene extends Phaser.Scene {
     preload() {
         this.load.image('phaser-logo', phaserLogoUrl)
 
-        this.load.spritesheet('player', playerSheetUrl, { frameWidth: 24, frameHeight: 24 })
+        this.load.image('player', playerSheetUrl)//, { frameWidth: 24, frameHeight: 24 })
     }
 
     create() {
         new PhaserLogo(this, this.cameras.main.width / 2, 0)
+        new Player(this, 50, config.scale.height-50)
         this.fpsText = new FpsText(this)
 
         // display the Phaser.VERSION
@@ -32,7 +33,7 @@ export default class MainScene extends Phaser.Scene {
             .setOrigin(1, 0)
 
         this.physics.world.setBounds(0, 0, config.scale.width, config.scale.height)
-        this.player = new Player(this, 50, config.scale.height-50)
+        
 
     }
 
