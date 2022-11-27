@@ -9,17 +9,17 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
     super(scene, x, y, 'player')
 
 
-    this.player = scene.physics.add.sprite(x, y, 'player')
-    this.player.setCollideWorldBounds(true)
+    this.player = scene.physics.add.sprite(x, 0, 'player')
+    // this.player.setCollideWorldBounds(true)
 
     // this.cursors = scene.input.keyboard.createCursorKeys()
 
-    scene.anims.create({
-      key: "run",
-      frames: scene.anims.generateFrameNumbers('player', { start: 0, end: 4 }),
-      frameRate: 10,
-      repeat: -1
-    })
+    // scene.anims.create({
+    //   key: "run",
+    //   frames: scene.anims.generateFrameNumbers('player', { start: 0, end: 4 }),
+    //   frameRate: 10,
+    //   repeat: -1
+    // })
   }
 
   update() {
