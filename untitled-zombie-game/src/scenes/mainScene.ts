@@ -1,13 +1,13 @@
 import FpsText from '../objects/fpsText'
 import phaserLogoUrl from '../assets/img/phaser-logo.png'
-// import playerSheetUrl from '../assets/img/player-sheet.png'
+import playerSheetUrl from '../assets/img/player-sheet.png'
 import { config } from '../game'
-// import Player from '../objects/player'
+import Player from '../objects/player'
 import PhaserLogo from '../objects/phaserLogo'
 
 export default class MainScene extends Phaser.Scene {
     fpsText!: FpsText
-    // player!: Player
+    player!: Player
 
     constructor() {
         super({ key: 'MainScene' })
@@ -16,7 +16,7 @@ export default class MainScene extends Phaser.Scene {
     preload() {
         this.load.image('phaser-logo', phaserLogoUrl)
 
-        // this.load.spritesheet('player', playerSheetUrl, { frameWidth: 24, frameHeight: 24 })
+        this.load.spritesheet('player', playerSheetUrl, { frameWidth: 24, frameHeight: 24 })
     }
 
     create() {
@@ -32,7 +32,7 @@ export default class MainScene extends Phaser.Scene {
             .setOrigin(1, 0)
 
         this.physics.world.setBounds(0, 0, config.scale.width, config.scale.height)
-        // this.player = new Player(this, 50, config.scale.height-50)
+        this.player = new Player(this, 50, config.scale.height-50)
 
     }
 
